@@ -122,7 +122,7 @@ extension DataSourceProvider {
                     
                     let numberOfChilds = self.dataSource.item(at: indexPath)!.childs.count
                     let indexPaths = (parentIndex + 1...parentIndex + numberOfChilds)
-                        .map { IndexPath(row: $0, section: 0)}
+                        .map { IndexPath(row: $0, section: indexPath.section)}
                     
                     tableView.deleteRows(at: indexPaths, with: .fade)
                     self.dataSource.collapseChilds(atIndexPath: indexPath, parentIndex: parentIndex)
@@ -134,7 +134,7 @@ extension DataSourceProvider {
                     
                     let indexPaths = (0..<numberOfChilds)
                         .map { _ -> IndexPath in
-                            let indexPath = IndexPath(row: insertPos, section: 0)
+                            let indexPath = IndexPath(row: insertPos, section: indexPath.section)
                             insertPos += 1
                             return indexPath
                     }

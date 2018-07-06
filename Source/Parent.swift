@@ -29,7 +29,7 @@ public protocol ParentType {
 }
 
 /// Defines the Parent model for the cells
-public struct Parent<Item, ChildItem>: ParentType {
+public class Parent<Item, ChildItem>: ParentType {
     
     // MARK: - Properties
     
